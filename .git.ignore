@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# Cypress cache
+.cypress/
+
+# Relatórios de testes
+cypress/screenshots/
+cypress/videos/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Ambiente local
+.env
+.env.local
+.env.test
+.env.development
