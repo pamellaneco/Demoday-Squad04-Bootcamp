@@ -1,3 +1,5 @@
+import "../../pages/RecruitmentPage"
+
 describe('CENÁRIO 5 - Adicionar candidato para recrutamento', () => {
     beforeEach(() => {
       cy.login('Admin', 'admin123')
