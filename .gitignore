@@ -4,6 +4,9 @@ node_modules/
 # Cypress cache
 .cypress/
 
+# Vídeos
+cypress/videos/*
+
 # Relatórios de testes
 cypress/screenshots/
 cypress/videos/
