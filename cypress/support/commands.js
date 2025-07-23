@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { faker } from '@faker-js/faker'
 
 Cypress.Commands.add('login', (user, password) => {
