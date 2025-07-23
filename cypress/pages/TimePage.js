@@ -23,6 +23,16 @@ Cypress.Commands.add("typePunch", (date, time, note = "") => {
   }
 });
 
+Cypress.Commands.add("typePunchIn", (date, time, note) => {
+  cy.get("h6").should("contain.text", "Punch In");
+  cy.typePunch(date, time, note);
+});
+
+Cypress.Commands.add("typePunchOut", (date, time, note) => {
+  cy.get("h6").should("contain.text", "Punch Out");
+  cy.typePunch(date, time, note);
+});
+
 Cypress.Commands.add("clickConfirmPunchIn", () => {
   cy.get(".oxd-form-actions button").contains("In").click();
 });

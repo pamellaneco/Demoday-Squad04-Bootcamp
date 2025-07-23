@@ -12,12 +12,10 @@ describe("CENÁRIO 8 - CONFIRMAR PRESENÇA DIÁRIA (“BATER PONTO”)", () => {
   const pastTime = dayjs().subtract(2, "hour").format("hh:mm A");
 
   it("CT003 - Bater ponto com horário de “Punch out” anterior a “Punch in”", () => {
-    cy.get("h6").should("contain.text", "Punch In");
-    cy.typePunch(currentDate, currentTime, "Ponto de entrada válido");
+    cy.typePunchIn(currentDate, currentTime, "Ponto de entrada válido");
     cy.clickConfirmPunchIn();
 
-    cy.get("h6").should("contain.text", "Punch Out");
-    cy.typePunch(
+    cy.typePunchOut(
       currentDate,
       pastTime,
       "Ponto de saída inválido (horário anterior a entrada)"
