@@ -54,9 +54,7 @@ Cypress.Commands.add('navigateToMyRecords', () => {
 });
 
 Cypress.Commands.add("removePunch", (punchDate, punchTime) => {
-  cy.get("li").contains("Attendance").click();
-  cy.get("li").contains("My Records").click();
-  cy.contains("h5", "My Attendance Records").should("be.visible");
+  cy.navigateToMyRecords()
 
   cy.get(".oxd-table-body .oxd-table-row").each(($row, index, $rows) => {
     const rowText = $row.text();
