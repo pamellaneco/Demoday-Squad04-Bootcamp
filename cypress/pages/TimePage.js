@@ -2,7 +2,8 @@ Cypress.Commands.add("navigateToPunch", () => {
   cy.visit("/time/viewEmployeeTimesheet");
   cy.get("li").contains("Attendance").click();
   cy.get("li").contains("Punch In/Out").click();
-  cy.contains("h6", "Punch In").should("be.visible");
+  cy.contains("h6", "Punch").should("be.visible");
+  
 });
 
 Cypress.Commands.add("typePunch", (date, time, note = "") => {
@@ -19,8 +20,12 @@ Cypress.Commands.add("typePunch", (date, time, note = "") => {
   cy.get("@timeInput").clear().type(time);
 
   if (note) {
-    cy.get(".oxd-textarea").should("exist").type(note);
+    // aguarda o seletor AM/PM desaparecer para garantir que o textarea esteja livre
+    cy.get('h6').contains("Punch").click()  
+    // só então escreve no campo de nota
+    cy.get('.oxd-textarea').should('exist').type(note);
   }
+  
 });
 
 Cypress.Commands.add("typePunchIn", (date, time, note) => {
@@ -39,6 +44,13 @@ Cypress.Commands.add("clickConfirmPunchIn", () => {
 
 Cypress.Commands.add("clickConfirmPunchOut", () => {
   cy.get(".oxd-form-actions button").contains("Out").click();
+});
+
+Cypress.Commands.add('navigateToMyRecords', () => {
+  cy.visit('/attendance/viewMyAttendanceRecord')
+  cy.get('nav').contains('Time').click()
+  cy.get('li').contains('Attendance').click()
+  cy.get('a').contains('My Records').click()
 });
 
 Cypress.Commands.add("removePunch", (punchDate, punchTime) => {
