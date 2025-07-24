@@ -7,7 +7,11 @@ describe("CENÁRIO 8 - CONFIRMAR PRESENÇA DIÁRIA (“BATER PONTO”)", () => {
     cy.navigateToPunch();
   });
 
-  const currentDate = dayjs().format("YYYY-MM-DD");
+  after(() => {
+    cy.removePunch(currentDate, currentTime);
+  });
+
+  const currentDate = dayjs().format("YYYY-DD-MM");
   const currentTime = dayjs().format("hh:mm A");
   const pastTime = dayjs().subtract(2, "hour").format("hh:mm A");
 
