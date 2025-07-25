@@ -1,5 +1,5 @@
 //modelo de teste do projeto
-import '../../pages/recruitment_ct001.page'
+import '../../pages/RecruitmentPage'
 
 describe('Cenário 5 - Adicionar candidato para recrutamento', () => {
     beforeEach(() => {
